@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JARVIS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">J</span>
+      <span class="brand-name">JARVIS</span>
+    </div>
+    <div class="clock" id="clock">00:00:00</div>
+  </header>
+
+  <main class="stage">
+    <div class="core-wrap">
+      <svg class="core-rings" id="coreRings" viewBox="0 0 400 400" aria-hidden="true">
+        <circle class="ring ring-outer" cx="200" cy="200" r="180" />
+        <circle class="ring ring-mid" cx="200" cy="200" r="150" />
+        <circle class="ring ring-tick" cx="200" cy="200" r="165" />
+      </svg>
+      <button class="core" id="coreButton" aria-label="Hold to talk to JARVIS">
+        <span class="core-glow" id="coreGlow"></span>
+        <span class="core-icon" id="coreIcon">
+          <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
+            <path d="M19 10v1a7 7 0 0 1-14 0v-1"/>
+            <line x1="12" y1="18" x2="12" y2="22"/>
+            <line x1="9" y1="22" x2="15" y2="22"/>
+          </svg>
+        </span>
+      </button>
+    </div>
+
+    <p class="status-label" id="statusLabel">TAP TO SPEAK</p>
+    <p class="status-sub" id="statusSub">JARVIS is idle</p>
+  </main>
+
+  <section class="console" id="console">
+    <div class="console-header">
+      <span>TRANSCRIPT</span>
+      <button class="clear-btn" id="clearBtn">CLEAR</button>
+    </div>
+    <div class="log" id="log">
+      <div class="log-empty" id="logEmpty">No conversation yet. Tap the core and start talking.</div>
+    </div>
+  </section>
+
+  <div class="setup-overlay" id="setupOverlay">
+    <div class="setup-card">
+      <h2>Connect JARVIS to its brain</h2>
+      <p>Enter the URL of your deployed backend (the server that holds your Gemini key). This is saved only in this browser.</p>
+      <input type="text" id="backendInput" placeholder="https://your-jarvis-backend.onrender.com" />
+      <button id="backendSave">Save & continue</button>
+      <p class="setup-hint">Running locally? Try <code>http://localhost:3001</code></p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
